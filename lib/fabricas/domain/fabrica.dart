@@ -29,6 +29,17 @@ class Fabrica {
   String descripcion;
   String webPage;
 
+  Map<String, Object?> toMap() {
+    return <String, Object?>{
+      'nombre': nombre.value,
+      'email': email.value,
+      'telefono': telefono,
+      'direccion': direccion,
+      'descripcion': descripcion,
+      'webPage': webPage,
+    };
+  }
+
   bool get isValid {
     if (email.value.isNotEmpty) {
       return email.isValid && nombre.isValid;

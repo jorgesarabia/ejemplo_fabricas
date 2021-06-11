@@ -4,8 +4,9 @@ import 'package:ejemplo_fabricas/auth/application/auth/auth_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
-  configureInjection();
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await configureInjection();
   runApp(MyApp());
 }
 

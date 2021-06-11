@@ -8,7 +8,33 @@ class FabricaForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AddFabricaBloc, AddFabricaState>(
+    return BlocConsumer<AddFabricaBloc, AddFabricaState>(
+      listener: (context, state) {
+        state.saveFailOrSuccess.fold(
+          () => null,
+          (loginWasSuccess) {
+            if (!loginWasSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Text(
+                      'No se pudo guardar la Fábrica',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            } else {
+              Navigator.of(context).pop();
+            }
+          },
+        );
+      },
       builder: (context, state) {
         return Form(
           autovalidateMode: state.autovalidateMode,

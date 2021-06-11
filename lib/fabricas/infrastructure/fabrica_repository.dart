@@ -18,6 +18,8 @@ class FabricaRepository implements IFabricaFacade {
 
   @override
   Future<Option<bool>> guardarFabrica(Fabrica fabrica) async {
+    await Future<dynamic>.delayed(const Duration(seconds: 2));
+
     final saved = await db.insert('Fabricas', fabrica.toMap());
 
     return optionOf(saved != 0);

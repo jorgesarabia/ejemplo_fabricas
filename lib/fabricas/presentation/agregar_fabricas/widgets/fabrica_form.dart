@@ -21,7 +21,7 @@ class FabricaForm extends StatelessWidget {
                         AddFabricaEvent.nombreChanged(input),
                       );
                 },
-                // validator: (_) => context.read<AddFabricaBloc>().state.,
+                validator: (_) => context.read<AddFabricaBloc>().state.fabrica.nombre.message,
               ),
               const SizedBox(height: 10.0),
               AppTextForm(
@@ -30,6 +30,13 @@ class FabricaForm extends StatelessWidget {
                   context.read<AddFabricaBloc>().add(
                         AddFabricaEvent.emailChanged(input),
                       );
+                },
+                validator: (_) {
+                  final email = context.read<AddFabricaBloc>().state.fabrica.email;
+                  if (email.value.isNotEmpty) {
+                    return email.message;
+                  }
+                  return null;
                 },
               ),
               const SizedBox(height: 10.0),

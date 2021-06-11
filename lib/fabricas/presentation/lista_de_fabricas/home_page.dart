@@ -1,4 +1,5 @@
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
+import 'package:ejemplo_fabricas/app/domain/is_required.dart';
 import 'package:ejemplo_fabricas/fabricas/domain/fabrica.dart';
 import 'package:ejemplo_fabricas/fabricas/presentation/agregar_fabricas/agregar_fabrica.dart';
 import 'package:ejemplo_fabricas/fabricas/presentation/detalle_fabrica/detalle_fabrica.dart';
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
                     'assets/portada.png',
                   ),
                 ),
-                title: Text(fabrica.nombre),
+                title: Text(fabrica.nombre.toString()),
                 isThreeLine: true,
                 subtitle: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +69,7 @@ class HomePage extends StatelessWidget {
   List<Fabrica> get _items {
     return <Fabrica>[
       Fabrica(
-        nombre: 'Electronica Sarabia',
+        nombre: IsRequired('Electronica Sarabia'),
         email: EmailAddress('algo@algo.com'),
         telefono: '444650',
         direccion: 'Bs As 1154',

@@ -1,5 +1,6 @@
 import 'package:ejemplo_fabricas/app/injectable/injection.dart';
 import 'package:ejemplo_fabricas/fabricas/application/agregar_fabrica/add_fabrica_bloc.dart';
+import 'package:ejemplo_fabricas/fabricas/presentation/agregar_fabricas/widgets/fabrica_button.dart';
 import 'package:ejemplo_fabricas/fabricas/presentation/agregar_fabricas/widgets/fabrica_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +31,7 @@ class AgregarFabrica extends StatelessWidget {
                 SizedBox(height: 12.0),
                 FabricaForm(),
                 SizedBox(height: 12.0),
+                FabricaButton(),
               ],
             ),
           ),

@@ -5,4 +5,7 @@ abstract class Validator {
 
   String? get message;
   bool get isValid;
+
+  @override
+  String toString() => value;
 }

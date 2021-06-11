@@ -1,4 +1,5 @@
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
+import 'package:ejemplo_fabricas/app/domain/is_required.dart';
 
 class Fabrica {
   Fabrica({
@@ -12,7 +13,7 @@ class Fabrica {
 
   factory Fabrica.empty() {
     return Fabrica(
-      nombre: '',
+      nombre: IsRequired(''),
       email: EmailAddress(''),
       telefono: '',
       direccion: '',
@@ -21,10 +22,18 @@ class Fabrica {
     );
   }
 
-  String nombre;
+  IsRequired nombre;
   EmailAddress email;
   String telefono;
   String direccion;
   String descripcion;
   String webPage;
+
+  bool get isValid {
+    if (email.value.isNotEmpty) {
+      return email.isValid && nombre.isValid;
+    }
+
+    return nombre.isValid;
+  }
 }

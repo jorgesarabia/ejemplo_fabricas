@@ -12,8 +12,8 @@ class FabricaRepository implements IFabricaFacade {
   }
 
   @override
-  Future<Option<bool>> guardarFabrica(Fabrica fabrica) {
-    // TODO: implement guardarFabrica
-    throw UnimplementedError();
+  Future<Option<bool>> guardarFabrica(Fabrica fabrica) async {
+    print(fabrica);
+    return none();
   }
 }

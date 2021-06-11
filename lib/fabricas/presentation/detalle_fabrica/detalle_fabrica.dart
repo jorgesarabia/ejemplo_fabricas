@@ -14,7 +14,7 @@ class DetalleFabrica extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(fabrica.nombre),
+        title: Text(fabrica.nombre.toString()),
       ),
       body: Padding(
         padding: const EdgeInsets.all(10.0),

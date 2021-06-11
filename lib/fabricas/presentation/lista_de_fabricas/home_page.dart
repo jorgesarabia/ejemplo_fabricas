@@ -25,13 +25,21 @@ class HomePage extends StatelessWidget {
             ),
             floatingActionButton: FloatingActionButton(
               onPressed: () {
-                Navigator.of(context).push<dynamic>(
+                final addFabrica = Navigator.of(context).push<dynamic>(
                   MaterialPageRoute<dynamic>(
                     builder: (BuildContext context) {
                       return const AgregarFabrica();
                     },
                   ),
                 );
+
+                addFabrica.then((dynamic value) {
+                  if (value != null && value as bool) {
+                    context.read<ListaFabricaBloc>().add(
+                          const ListaFabricaEvent.getItems(),
+                        );
+                  }
+                });
               },
               child: const Icon(Icons.add),
             ),

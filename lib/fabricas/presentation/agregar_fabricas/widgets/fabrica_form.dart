@@ -30,7 +30,7 @@ class FabricaForm extends StatelessWidget {
                 ),
               );
             } else {
-              Navigator.of(context).pop();
+              Navigator.of(context).pop(true);
             }
           },
         );

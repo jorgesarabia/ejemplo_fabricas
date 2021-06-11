@@ -12,7 +12,7 @@ class LandingPage extends StatelessWidget {
       builder: (context, state) {
         return state.map(
           initial: (_) => const _LocalSplash(),
-          isLoggedIn: (_) => Container(),
+          isLoggedIn: (_) => const _LocalSplash(),
           userIsNotLoggedIn: (_) => const LoginPage(),
         );
       },

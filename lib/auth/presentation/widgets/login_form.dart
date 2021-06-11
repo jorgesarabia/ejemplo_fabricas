@@ -2,6 +2,7 @@ import 'package:ejemplo_fabricas/app/app_text_form.dart';
 import 'package:ejemplo_fabricas/auth/application/login/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ejemplo_fabricas/auth/application/auth/auth_bloc.dart';
 
 class LoginForm extends StatelessWidget {
   @override
@@ -27,6 +28,8 @@ class LoginForm extends StatelessWidget {
                   backgroundColor: Colors.red,
                 ),
               );
+            } else {
+              context.read<AuthBloc>().add(const AuthEvent.appIsStarting());
             }
           },
         );

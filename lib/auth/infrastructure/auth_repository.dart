@@ -30,6 +30,9 @@ class AuthRepository implements IAuthFacade {
     await Future<dynamic>.delayed(const Duration(seconds: 2));
 
     if (emailMatch && passMatch) {
+      // Lo ideal sería guardar las credenciales del usuario, pero por simplicidad:
+      user.email = emailAddress.value;
+
       return optionOf(true);
     }
 

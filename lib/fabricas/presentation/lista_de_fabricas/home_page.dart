@@ -1,5 +1,6 @@
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
 import 'package:ejemplo_fabricas/fabricas/domain/fabrica.dart';
+import 'package:ejemplo_fabricas/fabricas/presentation/detalle_fabrica/detalle_fabrica.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -34,6 +35,15 @@ class HomePage extends StatelessWidget {
                     Text('Tel: ${fabrica.telefono}'),
                   ],
                 ),
+                onTap: () {
+                  Navigator.of(context).push<dynamic>(
+                    MaterialPageRoute<dynamic>(
+                      builder: (BuildContext context) {
+                        return DetalleFabrica(fabrica: fabrica);
+                      },
+                    ),
+                  );
+                },
               ),
             );
           },

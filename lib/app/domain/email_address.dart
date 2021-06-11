@@ -15,4 +15,7 @@ class EmailAddress extends Validator {
 
     return null;
   }
+
+  @override
+  String toString() => value;
 }

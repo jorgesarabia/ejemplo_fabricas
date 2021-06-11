@@ -20,6 +20,12 @@ class _$AddFabricaEventTearOff {
     return const SaveButtonPressed();
   }
 
+  WebChanged webChanged(String web) {
+    return WebChanged(
+      web,
+    );
+  }
+
   EmailChanged emailChanged(String email) {
     return EmailChanged(
       email,
@@ -59,6 +65,7 @@ mixin _$AddFabricaEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -69,6 +76,7 @@ mixin _$AddFabricaEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -80,6 +88,7 @@ mixin _$AddFabricaEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -90,6 +99,7 @@ mixin _$AddFabricaEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -158,6 +168,7 @@ class _$SaveButtonPressed implements SaveButtonPressed {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -171,6 +182,7 @@ class _$SaveButtonPressed implements SaveButtonPressed {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -188,6 +200,7 @@ class _$SaveButtonPressed implements SaveButtonPressed {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -201,6 +214,7 @@ class _$SaveButtonPressed implements SaveButtonPressed {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -217,6 +231,140 @@ class _$SaveButtonPressed implements SaveButtonPressed {
 
 abstract class SaveButtonPressed implements AddFabricaEvent {
   const factory SaveButtonPressed() = _$SaveButtonPressed;
+}
+
+/// @nodoc
+abstract class $WebChangedCopyWith<$Res> {
+  factory $WebChangedCopyWith(
+          WebChanged value, $Res Function(WebChanged) then) =
+      _$WebChangedCopyWithImpl<$Res>;
+  $Res call({String web});
+}
+
+/// @nodoc
+class _$WebChangedCopyWithImpl<$Res> extends _$AddFabricaEventCopyWithImpl<$Res>
+    implements $WebChangedCopyWith<$Res> {
+  _$WebChangedCopyWithImpl(WebChanged _value, $Res Function(WebChanged) _then)
+      : super(_value, (v) => _then(v as WebChanged));
+
+  @override
+  WebChanged get _value => super._value as WebChanged;
+
+  @override
+  $Res call({
+    Object? web = freezed,
+  }) {
+    return _then(WebChanged(
+      web == freezed
+          ? _value.web
+          : web // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$WebChanged implements WebChanged {
+  const _$WebChanged(this.web);
+
+  @override
+  final String web;
+
+  @override
+  String toString() {
+    return 'AddFabricaEvent.webChanged(web: $web)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is WebChanged &&
+            (identical(other.web, web) ||
+                const DeepCollectionEquality().equals(other.web, web)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(web);
+
+  @JsonKey(ignore: true)
+  @override
+  $WebChangedCopyWith<WebChanged> get copyWith =>
+      _$WebChangedCopyWithImpl<WebChanged>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
+    required TResult Function(String email) emailChanged,
+    required TResult Function(String nombre) nombreChanged,
+    required TResult Function(String telefono) telefonoChanged,
+    required TResult Function(String direccion) direccionChanged,
+    required TResult Function(String descripcion) descripcionChanged,
+  }) {
+    return webChanged(web);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
+    TResult Function(String email)? emailChanged,
+    TResult Function(String nombre)? nombreChanged,
+    TResult Function(String telefono)? telefonoChanged,
+    TResult Function(String direccion)? direccionChanged,
+    TResult Function(String descripcion)? descripcionChanged,
+    required TResult orElse(),
+  }) {
+    if (webChanged != null) {
+      return webChanged(web);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
+    required TResult Function(EmailChanged value) emailChanged,
+    required TResult Function(NombreChanged value) nombreChanged,
+    required TResult Function(TelefonoChanged value) telefonoChanged,
+    required TResult Function(DireccionChanged value) direccionChanged,
+    required TResult Function(DescripcionChanged value) descripcionChanged,
+  }) {
+    return webChanged(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
+    TResult Function(EmailChanged value)? emailChanged,
+    TResult Function(NombreChanged value)? nombreChanged,
+    TResult Function(TelefonoChanged value)? telefonoChanged,
+    TResult Function(DireccionChanged value)? direccionChanged,
+    TResult Function(DescripcionChanged value)? descripcionChanged,
+    required TResult orElse(),
+  }) {
+    if (webChanged != null) {
+      return webChanged(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class WebChanged implements AddFabricaEvent {
+  const factory WebChanged(String web) = _$WebChanged;
+
+  String get web => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $WebChangedCopyWith<WebChanged> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -285,6 +433,7 @@ class _$EmailChanged implements EmailChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -298,6 +447,7 @@ class _$EmailChanged implements EmailChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -315,6 +465,7 @@ class _$EmailChanged implements EmailChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -328,6 +479,7 @@ class _$EmailChanged implements EmailChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -417,6 +569,7 @@ class _$NombreChanged implements NombreChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -430,6 +583,7 @@ class _$NombreChanged implements NombreChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -447,6 +601,7 @@ class _$NombreChanged implements NombreChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -460,6 +615,7 @@ class _$NombreChanged implements NombreChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -550,6 +706,7 @@ class _$TelefonoChanged implements TelefonoChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -563,6 +720,7 @@ class _$TelefonoChanged implements TelefonoChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -580,6 +738,7 @@ class _$TelefonoChanged implements TelefonoChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -593,6 +752,7 @@ class _$TelefonoChanged implements TelefonoChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -683,6 +843,7 @@ class _$DireccionChanged implements DireccionChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -696,6 +857,7 @@ class _$DireccionChanged implements DireccionChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -713,6 +875,7 @@ class _$DireccionChanged implements DireccionChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -726,6 +889,7 @@ class _$DireccionChanged implements DireccionChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,
@@ -816,6 +980,7 @@ class _$DescripcionChanged implements DescripcionChanged {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() saveButtonPressed,
+    required TResult Function(String web) webChanged,
     required TResult Function(String email) emailChanged,
     required TResult Function(String nombre) nombreChanged,
     required TResult Function(String telefono) telefonoChanged,
@@ -829,6 +994,7 @@ class _$DescripcionChanged implements DescripcionChanged {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? saveButtonPressed,
+    TResult Function(String web)? webChanged,
     TResult Function(String email)? emailChanged,
     TResult Function(String nombre)? nombreChanged,
     TResult Function(String telefono)? telefonoChanged,
@@ -846,6 +1012,7 @@ class _$DescripcionChanged implements DescripcionChanged {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(SaveButtonPressed value) saveButtonPressed,
+    required TResult Function(WebChanged value) webChanged,
     required TResult Function(EmailChanged value) emailChanged,
     required TResult Function(NombreChanged value) nombreChanged,
     required TResult Function(TelefonoChanged value) telefonoChanged,
@@ -859,6 +1026,7 @@ class _$DescripcionChanged implements DescripcionChanged {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(SaveButtonPressed value)? saveButtonPressed,
+    TResult Function(WebChanged value)? webChanged,
     TResult Function(EmailChanged value)? emailChanged,
     TResult Function(NombreChanged value)? nombreChanged,
     TResult Function(TelefonoChanged value)? telefonoChanged,

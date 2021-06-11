@@ -1,38 +1,41 @@
 import 'package:ejemplo_fabricas/app/app_text_form.dart';
+import 'package:ejemplo_fabricas/auth/application/login/login_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginForm extends StatelessWidget {
-  LoginForm({Key? key}) : super(key: key);
-
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        children: [
-          AppTextForm(
-            hintText: 'Usuario',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Add some text';
-              }
-              return null;
-            },
+    return BlocBuilder<LoginBloc, LoginState>(
+      builder: (context, state) {
+        return Form(
+          autovalidateMode: state.autovalidateMode,
+          child: Column(
+            children: [
+              AppTextForm(
+                hintText: 'Email',
+                onChanged: (input) {
+                  context.read<LoginBloc>().add(
+                        LoginEvent.emailChanged(input),
+                      );
+                },
+                validator: (_) => context.read<LoginBloc>().state.emailAddress.message,
+              ),
+              const SizedBox(height: 10.0),
+              AppTextForm(
+                hintText: 'Contraseña',
+                obscureText: true,
+                onChanged: (input) {
+                  context.read<LoginBloc>().add(
+                        LoginEvent.passwordChanged(input),
+                      );
+                },
+                validator: (_) => context.read<LoginBloc>().state.password.message,
+              ),
+            ],
           ),
-          const SizedBox(height: 10.0),
-          AppTextForm(
-            hintText: 'Contraseña',
-            validator: (value) {
-              if (value == null || value.isEmpty) {
-                return 'Add some text';
-              }
-              return null;
-            },
-          ),
-        ],
-      ),
+        );
+      },
     );
   }
 }

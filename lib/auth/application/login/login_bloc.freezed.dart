@@ -421,11 +421,13 @@ class _$LoginStateTearOff {
   _LoginUserState call(
       {required EmailAddress emailAddress,
       required Password password,
-      required bool isSubmitting}) {
+      required bool isSubmitting,
+      required AutovalidateMode autovalidateMode}) {
     return _LoginUserState(
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
+      autovalidateMode: autovalidateMode,
     );
   }
 }
@@ -438,6 +440,7 @@ mixin _$LoginState {
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
   Password get password => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
+  AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -449,7 +452,11 @@ abstract class $LoginStateCopyWith<$Res> {
   factory $LoginStateCopyWith(
           LoginState value, $Res Function(LoginState) then) =
       _$LoginStateCopyWithImpl<$Res>;
-  $Res call({EmailAddress emailAddress, Password password, bool isSubmitting});
+  $Res call(
+      {EmailAddress emailAddress,
+      Password password,
+      bool isSubmitting,
+      AutovalidateMode autovalidateMode});
 }
 
 /// @nodoc
@@ -465,6 +472,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
+    Object? autovalidateMode = freezed,
   }) {
     return _then(_value.copyWith(
       emailAddress: emailAddress == freezed
@@ -479,6 +487,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      autovalidateMode: autovalidateMode == freezed
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
     ));
   }
 }
@@ -490,7 +502,11 @@ abstract class _$LoginUserStateCopyWith<$Res>
           _LoginUserState value, $Res Function(_LoginUserState) then) =
       __$LoginUserStateCopyWithImpl<$Res>;
   @override
-  $Res call({EmailAddress emailAddress, Password password, bool isSubmitting});
+  $Res call(
+      {EmailAddress emailAddress,
+      Password password,
+      bool isSubmitting,
+      AutovalidateMode autovalidateMode});
 }
 
 /// @nodoc
@@ -508,6 +524,7 @@ class __$LoginUserStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? emailAddress = freezed,
     Object? password = freezed,
     Object? isSubmitting = freezed,
+    Object? autovalidateMode = freezed,
   }) {
     return _then(_LoginUserState(
       emailAddress: emailAddress == freezed
@@ -522,6 +539,10 @@ class __$LoginUserStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           ? _value.isSubmitting
           : isSubmitting // ignore: cast_nullable_to_non_nullable
               as bool,
+      autovalidateMode: autovalidateMode == freezed
+          ? _value.autovalidateMode
+          : autovalidateMode // ignore: cast_nullable_to_non_nullable
+              as AutovalidateMode,
     ));
   }
 }
@@ -532,7 +553,8 @@ class _$_LoginUserState implements _LoginUserState {
   const _$_LoginUserState(
       {required this.emailAddress,
       required this.password,
-      required this.isSubmitting});
+      required this.isSubmitting,
+      required this.autovalidateMode});
 
   @override
   final EmailAddress emailAddress;
@@ -540,10 +562,12 @@ class _$_LoginUserState implements _LoginUserState {
   final Password password;
   @override
   final bool isSubmitting;
+  @override
+  final AutovalidateMode autovalidateMode;
 
   @override
   String toString() {
-    return 'LoginState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting)';
+    return 'LoginState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, autovalidateMode: $autovalidateMode)';
   }
 
   @override
@@ -558,7 +582,10 @@ class _$_LoginUserState implements _LoginUserState {
                     .equals(other.password, password)) &&
             (identical(other.isSubmitting, isSubmitting) ||
                 const DeepCollectionEquality()
-                    .equals(other.isSubmitting, isSubmitting)));
+                    .equals(other.isSubmitting, isSubmitting)) &&
+            (identical(other.autovalidateMode, autovalidateMode) ||
+                const DeepCollectionEquality()
+                    .equals(other.autovalidateMode, autovalidateMode)));
   }
 
   @override
@@ -566,7 +593,8 @@ class _$_LoginUserState implements _LoginUserState {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
-      const DeepCollectionEquality().hash(isSubmitting);
+      const DeepCollectionEquality().hash(isSubmitting) ^
+      const DeepCollectionEquality().hash(autovalidateMode);
 
   @JsonKey(ignore: true)
   @override
@@ -578,7 +606,8 @@ abstract class _LoginUserState implements LoginState {
   const factory _LoginUserState(
       {required EmailAddress emailAddress,
       required Password password,
-      required bool isSubmitting}) = _$_LoginUserState;
+      required bool isSubmitting,
+      required AutovalidateMode autovalidateMode}) = _$_LoginUserState;
 
   @override
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
@@ -586,6 +615,8 @@ abstract class _LoginUserState implements LoginState {
   Password get password => throw _privateConstructorUsedError;
   @override
   bool get isSubmitting => throw _privateConstructorUsedError;
+  @override
+  AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LoginUserStateCopyWith<_LoginUserState> get copyWith =>

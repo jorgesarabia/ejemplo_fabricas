@@ -6,15 +6,18 @@ class AppTextForm extends StatelessWidget {
     this.hintText,
     this.validator,
     this.onChanged,
+    this.obscureText = false,
   }) : super(key: key);
 
   final String? hintText;
   final String? Function(String?)? validator;
   final void Function(String)? onChanged;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      obscureText: obscureText,
       decoration: InputDecoration(
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.all(

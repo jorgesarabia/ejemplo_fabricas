@@ -6,12 +6,14 @@ class LoginState with _$LoginState {
     required EmailAddress emailAddress,
     required Password password,
     required bool isSubmitting,
+    required AutovalidateMode autovalidateMode,
   }) = _LoginUserState;
 
   factory LoginState.initial() {
     return LoginState(
       emailAddress: EmailAddress(''),
       password: Password(''),
+      autovalidateMode: AutovalidateMode.disabled,
       isSubmitting: false,
     );
   }

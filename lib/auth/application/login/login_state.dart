@@ -7,6 +7,7 @@ class LoginState with _$LoginState {
     required Password password,
     required bool isSubmitting,
     required AutovalidateMode autovalidateMode,
+    required Option<bool> logginWasSuccessOption,
   }) = _LoginUserState;
 
   factory LoginState.initial() {
@@ -15,6 +16,7 @@ class LoginState with _$LoginState {
       password: Password(''),
       autovalidateMode: AutovalidateMode.disabled,
       isSubmitting: false,
+      logginWasSuccessOption: none(),
     );
   }
 }

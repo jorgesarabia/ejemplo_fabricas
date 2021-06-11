@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
 import 'package:ejemplo_fabricas/app/domain/password.dart';
 import 'package:ejemplo_fabricas/auth/domain/i_auth_facade.dart';
@@ -18,7 +19,7 @@ class AuthRepository implements IAuthFacade {
   }
 
   @override
-  Future<bool> signInWithEmailAndPassword({
+  Future<Option<bool>> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   }) async {
@@ -29,10 +30,10 @@ class AuthRepository implements IAuthFacade {
     await Future<dynamic>.delayed(const Duration(seconds: 2));
 
     if (emailMatch && passMatch) {
-      return true;
+      return optionOf(true);
     }
 
-    return false;
+    return optionOf(false);
   }
 
   @override

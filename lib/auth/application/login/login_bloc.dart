@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
 import 'package:ejemplo_fabricas/app/domain/password.dart';
 import 'package:ejemplo_fabricas/auth/domain/i_auth_facade.dart';
@@ -21,17 +22,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     yield* event.map(
       emailChanged: (e) async* {
         yield state.copyWith(
-          emailAddress: EmailAddress(e.email),
+          emailAddress: EmailAddress(e.email.trim()),
+          logginWasSuccessOption: none(),
         );
       },
       passwordChanged: (e) async* {
         yield state.copyWith(
           password: Password(e.password),
+          logginWasSuccessOption: none(),
         );
       },
       logInBtnPressed: (e) async* {
         yield state.copyWith(
           autovalidateMode: AutovalidateMode.always,
+          logginWasSuccessOption: none(),
         );
 
         if (state.password.isValid && state.emailAddress.isValid) {
@@ -42,13 +46,19 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Stream<LoginState> _loginWithEmailAndPassword() async* {
-    yield state.copyWith(isSubmitting: true);
+    yield state.copyWith(
+      isSubmitting: true,
+      logginWasSuccessOption: none(),
+    );
 
     final isLoggedIn = await authFacade.signInWithEmailAndPassword(
       emailAddress: state.emailAddress,
       password: state.password,
     );
 
-    yield state.copyWith(isSubmitting: false);
+    yield state.copyWith(
+      isSubmitting: false,
+      logginWasSuccessOption: isLoggedIn,
+    );
   }
 }

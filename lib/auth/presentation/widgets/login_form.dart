@@ -6,7 +6,31 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<LoginBloc, LoginState>(
+    return BlocConsumer<LoginBloc, LoginState>(
+      listener: (context, state) {
+        state.logginWasSuccessOption.fold(
+          () => null,
+          (loginWasSuccess) {
+            if (!loginWasSuccess) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                const SnackBar(
+                  content: Padding(
+                    padding: EdgeInsets.all(20.0),
+                    child: Text(
+                      'Las credenciales no coinciden, mire el mensaje abajo del botón',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  backgroundColor: Colors.red,
+                ),
+              );
+            }
+          },
+        );
+      },
       builder: (context, state) {
         return Form(
           autovalidateMode: state.autovalidateMode,

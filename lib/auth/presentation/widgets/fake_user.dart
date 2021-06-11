@@ -15,13 +15,13 @@ class FakeUser extends StatelessWidget {
         ),
         children: [
           TextSpan(
-            text: 'Usuario',
+            text: 'Email',
             style: TextStyle(
               decoration: TextDecoration.underline,
             ),
           ),
           TextSpan(
-            text: ': Admin\n',
+            text: ': admin@admin.com\n',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),
@@ -33,7 +33,7 @@ class FakeUser extends StatelessWidget {
             ),
           ),
           TextSpan(
-            text: ': Admin',
+            text: ': Admin123',
             style: TextStyle(
               fontWeight: FontWeight.bold,
             ),

@@ -422,12 +422,14 @@ class _$LoginStateTearOff {
       {required EmailAddress emailAddress,
       required Password password,
       required bool isSubmitting,
-      required AutovalidateMode autovalidateMode}) {
+      required AutovalidateMode autovalidateMode,
+      required Option<bool> logginWasSuccessOption}) {
     return _LoginUserState(
       emailAddress: emailAddress,
       password: password,
       isSubmitting: isSubmitting,
       autovalidateMode: autovalidateMode,
+      logginWasSuccessOption: logginWasSuccessOption,
     );
   }
 }
@@ -441,6 +443,7 @@ mixin _$LoginState {
   Password get password => throw _privateConstructorUsedError;
   bool get isSubmitting => throw _privateConstructorUsedError;
   AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
+  Option<bool> get logginWasSuccessOption => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $LoginStateCopyWith<LoginState> get copyWith =>
@@ -456,7 +459,8 @@ abstract class $LoginStateCopyWith<$Res> {
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      AutovalidateMode autovalidateMode});
+      AutovalidateMode autovalidateMode,
+      Option<bool> logginWasSuccessOption});
 }
 
 /// @nodoc
@@ -473,6 +477,7 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
     Object? password = freezed,
     Object? isSubmitting = freezed,
     Object? autovalidateMode = freezed,
+    Object? logginWasSuccessOption = freezed,
   }) {
     return _then(_value.copyWith(
       emailAddress: emailAddress == freezed
@@ -491,6 +496,10 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
+      logginWasSuccessOption: logginWasSuccessOption == freezed
+          ? _value.logginWasSuccessOption
+          : logginWasSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<bool>,
     ));
   }
 }
@@ -506,7 +515,8 @@ abstract class _$LoginUserStateCopyWith<$Res>
       {EmailAddress emailAddress,
       Password password,
       bool isSubmitting,
-      AutovalidateMode autovalidateMode});
+      AutovalidateMode autovalidateMode,
+      Option<bool> logginWasSuccessOption});
 }
 
 /// @nodoc
@@ -525,6 +535,7 @@ class __$LoginUserStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
     Object? password = freezed,
     Object? isSubmitting = freezed,
     Object? autovalidateMode = freezed,
+    Object? logginWasSuccessOption = freezed,
   }) {
     return _then(_LoginUserState(
       emailAddress: emailAddress == freezed
@@ -543,6 +554,10 @@ class __$LoginUserStateCopyWithImpl<$Res> extends _$LoginStateCopyWithImpl<$Res>
           ? _value.autovalidateMode
           : autovalidateMode // ignore: cast_nullable_to_non_nullable
               as AutovalidateMode,
+      logginWasSuccessOption: logginWasSuccessOption == freezed
+          ? _value.logginWasSuccessOption
+          : logginWasSuccessOption // ignore: cast_nullable_to_non_nullable
+              as Option<bool>,
     ));
   }
 }
@@ -554,7 +569,8 @@ class _$_LoginUserState implements _LoginUserState {
       {required this.emailAddress,
       required this.password,
       required this.isSubmitting,
-      required this.autovalidateMode});
+      required this.autovalidateMode,
+      required this.logginWasSuccessOption});
 
   @override
   final EmailAddress emailAddress;
@@ -564,10 +580,12 @@ class _$_LoginUserState implements _LoginUserState {
   final bool isSubmitting;
   @override
   final AutovalidateMode autovalidateMode;
+  @override
+  final Option<bool> logginWasSuccessOption;
 
   @override
   String toString() {
-    return 'LoginState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, autovalidateMode: $autovalidateMode)';
+    return 'LoginState(emailAddress: $emailAddress, password: $password, isSubmitting: $isSubmitting, autovalidateMode: $autovalidateMode, logginWasSuccessOption: $logginWasSuccessOption)';
   }
 
   @override
@@ -585,7 +603,10 @@ class _$_LoginUserState implements _LoginUserState {
                     .equals(other.isSubmitting, isSubmitting)) &&
             (identical(other.autovalidateMode, autovalidateMode) ||
                 const DeepCollectionEquality()
-                    .equals(other.autovalidateMode, autovalidateMode)));
+                    .equals(other.autovalidateMode, autovalidateMode)) &&
+            (identical(other.logginWasSuccessOption, logginWasSuccessOption) ||
+                const DeepCollectionEquality().equals(
+                    other.logginWasSuccessOption, logginWasSuccessOption)));
   }
 
   @override
@@ -594,7 +615,8 @@ class _$_LoginUserState implements _LoginUserState {
       const DeepCollectionEquality().hash(emailAddress) ^
       const DeepCollectionEquality().hash(password) ^
       const DeepCollectionEquality().hash(isSubmitting) ^
-      const DeepCollectionEquality().hash(autovalidateMode);
+      const DeepCollectionEquality().hash(autovalidateMode) ^
+      const DeepCollectionEquality().hash(logginWasSuccessOption);
 
   @JsonKey(ignore: true)
   @override
@@ -607,7 +629,8 @@ abstract class _LoginUserState implements LoginState {
       {required EmailAddress emailAddress,
       required Password password,
       required bool isSubmitting,
-      required AutovalidateMode autovalidateMode}) = _$_LoginUserState;
+      required AutovalidateMode autovalidateMode,
+      required Option<bool> logginWasSuccessOption}) = _$_LoginUserState;
 
   @override
   EmailAddress get emailAddress => throw _privateConstructorUsedError;
@@ -617,6 +640,8 @@ abstract class _LoginUserState implements LoginState {
   bool get isSubmitting => throw _privateConstructorUsedError;
   @override
   AutovalidateMode get autovalidateMode => throw _privateConstructorUsedError;
+  @override
+  Option<bool> get logginWasSuccessOption => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$LoginUserStateCopyWith<_LoginUserState> get copyWith =>

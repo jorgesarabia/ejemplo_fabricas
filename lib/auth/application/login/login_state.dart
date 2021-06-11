@@ -10,8 +10,8 @@ class LoginState with _$LoginState {
 
   factory LoginState.initial() {
     return LoginState(
-      emailAddress: EmailAddress(),
-      password: Password(),
+      emailAddress: EmailAddress(''),
+      password: Password(''),
       isSubmitting: false,
     );
   }

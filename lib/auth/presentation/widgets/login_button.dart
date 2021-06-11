@@ -19,6 +19,7 @@ class LoginButton extends StatelessWidget {
         animatedButton = AppButton(
           label: 'Login',
           onPressed: () {
+            FocusScope.of(context).unfocus();
             context.read<LoginBloc>().add(const LoginEvent.logInBtnPressed());
           },
         );

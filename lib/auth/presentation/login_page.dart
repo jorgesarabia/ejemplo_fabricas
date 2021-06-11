@@ -25,11 +25,27 @@ class LoginPage extends StatelessWidget {
                 LoginForm(),
                 const SizedBox(height: 32.0),
                 BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-                  return AppButton(
-                    label: 'Login',
-                    onPressed: () {
-                      context.read<LoginBloc>().add(const LoginEvent.logInBtnPressed());
-                    },
+                  Widget animatedButton;
+
+                  if (state.isSubmitting) {
+                    animatedButton = const Center(
+                      child: CircularProgressIndicator(),
+                    );
+                  } else {
+                    animatedButton = AppButton(
+                      label: 'Login',
+                      onPressed: () {
+                        context.read<LoginBloc>().add(const LoginEvent.logInBtnPressed());
+                      },
+                    );
+                  }
+
+                  return AnimatedSwitcher(
+                    duration: const Duration(seconds: 1),
+                    child: SizedBox(
+                      height: 50.0,
+                      child: animatedButton,
+                    ),
                   );
                 }),
                 const SizedBox(height: 32.0),

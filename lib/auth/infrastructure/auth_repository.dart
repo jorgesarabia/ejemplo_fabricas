@@ -18,11 +18,21 @@ class AuthRepository implements IAuthFacade {
   }
 
   @override
-  Future<void> signInWithEmailAndPassword({
+  Future<bool> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
-  }) {
-    throw UnimplementedError();
+  }) async {
+    final bool emailMatch = emailAddress.value == 'admin@admin.com';
+    final bool passMatch = password.value == 'Admin123';
+
+    // Simula el retardo de la red
+    await Future<dynamic>.delayed(const Duration(seconds: 2));
+
+    if (emailMatch && passMatch) {
+      return true;
+    }
+
+    return false;
   }
 
   @override

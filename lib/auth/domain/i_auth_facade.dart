@@ -5,7 +5,7 @@ import 'package:ejemplo_fabricas/auth/domain/user.dart';
 abstract class IAuthFacade {
   Future<User> getSignedInUser();
 
-  Future<void> signInWithEmailAndPassword({
+  Future<bool> signInWithEmailAndPassword({
     required EmailAddress emailAddress,
     required Password password,
   });

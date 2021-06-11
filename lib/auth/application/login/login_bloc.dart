@@ -35,9 +35,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         );
 
         if (state.password.isValid && state.emailAddress.isValid) {
-          // Try to log in
+          yield* _loginWithEmailAndPassword();
         }
       },
     );
+  }
+
+  Stream<LoginState> _loginWithEmailAndPassword() async* {
+    yield state.copyWith(isSubmitting: true);
+
+    final isLoggedIn = await authFacade.signInWithEmailAndPassword(
+      emailAddress: state.emailAddress,
+      password: state.password,
+    );
+
+    yield state.copyWith(isSubmitting: false);
   }
 }

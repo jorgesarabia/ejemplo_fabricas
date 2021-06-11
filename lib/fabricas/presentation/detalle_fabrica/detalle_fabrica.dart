@@ -43,6 +43,13 @@ class DetalleFabrica extends StatelessWidget {
               iconData: Icons.email,
             ),
             const SizedBox(height: 15.0),
+            FabricaInfo(
+              info: '',
+              infoValue: fabrica.webPage,
+              iconColor: Colors.blue,
+              iconData: Icons.web,
+            ),
+            const SizedBox(height: 15.0),
             Container(
               margin: const EdgeInsets.all(15.0),
               padding: const EdgeInsets.all(15.0),

@@ -73,6 +73,7 @@ class HomePage extends StatelessWidget {
         telefono: '444650',
         direccion: 'Bs As 1154',
         descripcion: 'Electronica que se dedica a vender cosas',
+        webPage: 'https://www.google.com',
       )
     ];
   }

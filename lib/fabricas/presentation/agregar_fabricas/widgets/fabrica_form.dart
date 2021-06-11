@@ -31,6 +31,11 @@ class FabricaForm extends StatelessWidget {
           ),
           const SizedBox(height: 10.0),
           AppTextForm(
+            hintText: 'Web',
+            onChanged: (input) {},
+          ),
+          const SizedBox(height: 10.0),
+          AppTextForm(
             hintText: 'Descripción',
             maxLines: 5,
             onChanged: (input) {},

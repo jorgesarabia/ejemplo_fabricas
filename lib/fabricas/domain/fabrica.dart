@@ -7,11 +7,24 @@ class Fabrica {
     required this.telefono,
     required this.direccion,
     required this.descripcion,
+    required this.webPage,
   });
 
-  final String nombre;
+  factory Fabrica.empty() {
+    return Fabrica(
+      nombre: '',
+      email: EmailAddress(''),
+      telefono: '',
+      direccion: '',
+      descripcion: '',
+      webPage: '',
+    );
+  }
+
+  String nombre;
   EmailAddress email;
   String telefono;
   String direccion;
   String descripcion;
+  String webPage;
 }

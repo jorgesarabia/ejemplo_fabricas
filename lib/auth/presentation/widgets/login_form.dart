@@ -52,6 +52,7 @@ class LoginForm extends StatelessWidget {
               AppTextForm(
                 hintText: 'Contraseña',
                 obscureText: true,
+                maxLines: 1,
                 onChanged: (input) {
                   context.read<LoginBloc>().add(
                         LoginEvent.passwordChanged(input),

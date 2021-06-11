@@ -21,6 +21,7 @@ class FabricaButton extends StatelessWidget {
         animatedButton = AppButton(
           label: 'Guardar',
           onPressed: () {
+            FocusScope.of(context).unfocus();
             context.read<AddFabricaBloc>().add(const AddFabricaEvent.saveButtonPressed());
           },
         );

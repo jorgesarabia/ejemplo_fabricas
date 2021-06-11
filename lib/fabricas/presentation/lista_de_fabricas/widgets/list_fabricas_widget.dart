@@ -33,9 +33,9 @@ class ListFabricasWidget extends StatelessWidget {
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Dirección: ${fabrica.direccion}'),
+                  Text('Dirección: ${_detail(fabrica.direccion)}'),
                   const SizedBox(height: 5.0),
-                  Text('Tel: ${fabrica.telefono}'),
+                  Text('Tel: ${_detail(fabrica.telefono)}'),
                 ],
               ),
               onTap: () {
@@ -52,5 +52,13 @@ class ListFabricasWidget extends StatelessWidget {
         },
       ),
     );
+  }
+
+  String _detail(String value) {
+    if (value.isNotEmpty) {
+      return value;
+    }
+
+    return 'Dato no cargado';
   }
 }

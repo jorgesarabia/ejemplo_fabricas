@@ -1,7 +1,7 @@
-import 'package:ejemplo_fabricas/app/app_button.dart';
 import 'package:ejemplo_fabricas/app/injectable/injection.dart';
 import 'package:ejemplo_fabricas/auth/application/login/login_bloc.dart';
 import 'package:ejemplo_fabricas/auth/presentation/widgets/fake_user.dart';
+import 'package:ejemplo_fabricas/auth/presentation/widgets/login_button.dart';
 import 'package:ejemplo_fabricas/auth/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,30 +24,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 22.0),
                 LoginForm(),
                 const SizedBox(height: 32.0),
-                BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-                  Widget animatedButton;
-
-                  if (state.isSubmitting) {
-                    animatedButton = const Center(
-                      child: CircularProgressIndicator(),
-                    );
-                  } else {
-                    animatedButton = AppButton(
-                      label: 'Login',
-                      onPressed: () {
-                        context.read<LoginBloc>().add(const LoginEvent.logInBtnPressed());
-                      },
-                    );
-                  }
-
-                  return AnimatedSwitcher(
-                    duration: const Duration(seconds: 1),
-                    child: SizedBox(
-                      height: 50.0,
-                      child: animatedButton,
-                    ),
-                  );
-                }),
+                const LoginButton(),
                 const SizedBox(height: 32.0),
                 const FakeUser(),
               ],

@@ -37,7 +37,7 @@ class FabricaInfo extends StatelessWidget {
         const SizedBox(width: 10.0),
         Expanded(
           child: Text(
-            infoValue,
+            _valueIsCharged,
             style: const TextStyle(
               fontSize: 20.0,
               fontStyle: FontStyle.italic,
@@ -46,5 +46,13 @@ class FabricaInfo extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  String get _valueIsCharged {
+    if (infoValue.isNotEmpty) {
+      return infoValue;
+    }
+
+    return 'Dato no cargado';
   }
 }

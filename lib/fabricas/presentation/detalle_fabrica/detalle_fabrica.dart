@@ -1,4 +1,5 @@
 import 'package:ejemplo_fabricas/fabricas/domain/fabrica.dart';
+import 'package:ejemplo_fabricas/fabricas/presentation/detalle_fabrica/widgets/fabrica_detail.dart';
 import 'package:ejemplo_fabricas/fabricas/presentation/detalle_fabrica/widgets/fabrica_info.dart';
 import 'package:flutter/material.dart';
 
@@ -50,17 +51,7 @@ class DetalleFabrica extends StatelessWidget {
               iconData: Icons.web,
             ),
             const SizedBox(height: 15.0),
-            Container(
-              margin: const EdgeInsets.all(15.0),
-              padding: const EdgeInsets.all(15.0),
-              decoration: BoxDecoration(
-                color: Colors.grey.withOpacity(0.3),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(10.0),
-                ),
-              ),
-              child: Text(fabrica.descripcion),
-            ),
+            FabricaDetail(descripcion: fabrica.descripcion),
           ],
         ),
       ),

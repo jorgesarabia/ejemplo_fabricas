@@ -1,4 +1,5 @@
 import 'package:ejemplo_fabricas/app/app_button.dart';
+import 'package:ejemplo_fabricas/auth/presentation/widgets/fake_user.dart';
 import 'package:ejemplo_fabricas/auth/presentation/widgets/login_form.dart';
 import 'package:flutter/material.dart';
 
@@ -14,10 +15,7 @@ class LoginPage extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Column(
             children: [
-              const Placeholder(
-                fallbackHeight: 100,
-                fallbackWidth: 100,
-              ),
+              Image.asset('assets/portada.png'),
               const SizedBox(height: 22.0),
               LoginForm(),
               const SizedBox(height: 32.0),
@@ -25,6 +23,8 @@ class LoginPage extends StatelessWidget {
                 label: 'Login',
                 onPressed: () {},
               ),
+              const SizedBox(height: 32.0),
+              const FakeUser(),
             ],
           ),
         ),

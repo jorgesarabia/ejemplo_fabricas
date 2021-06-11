@@ -1,3 +1,4 @@
+import 'package:ejemplo_fabricas/fabricas/presentation/agregar_fabricas/widgets/fabrica_form.dart';
 import 'package:flutter/material.dart';
 
 class AgregarFabrica extends StatelessWidget {
@@ -13,8 +14,17 @@ class AgregarFabrica extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Column(
-            children: [
-              const SizedBox(height: 32.0),
+            children: const [
+              Text(
+                'Ingrese los datos de la Fábrica',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 25.0,
+                ),
+              ),
+              SizedBox(height: 12.0),
+              FabricaForm(),
+              SizedBox(height: 12.0),
             ],
           ),
         ),

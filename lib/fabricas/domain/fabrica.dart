@@ -22,6 +22,24 @@ class Fabrica {
     );
   }
 
+  factory Fabrica.fromMap(Map<String, Object?> map) {
+    final _nombre = map['nombre'] as String?;
+    final _email = map['email'] as String?;
+    final _telefono = map['telefono'] as String?;
+    final _direccion = map['direccion'] as String?;
+    final _descripcion = map['descripcion'] as String?;
+    final _webPage = map['webPage'] as String?;
+
+    return Fabrica(
+      nombre: IsRequired(_nombre ?? ''),
+      email: EmailAddress(_email ?? ''),
+      telefono: _telefono ?? '',
+      direccion: _direccion ?? '',
+      descripcion: _descripcion ?? '',
+      webPage: _webPage ?? '',
+    );
+  }
+
   IsRequired nombre;
   EmailAddress email;
   String telefono;
@@ -38,6 +56,16 @@ class Fabrica {
       'descripcion': descripcion,
       'webPage': webPage,
     };
+  }
+
+  static List<Fabrica> listOfFabricasFromListOfMaps(List<Map<String, Object?>> listOfMaps) {
+    final list = <Fabrica>[];
+
+    for (final fabrica in listOfMaps) {
+      list.add(Fabrica.fromMap(fabrica));
+    }
+
+    return list;
   }
 
   bool get isValid {

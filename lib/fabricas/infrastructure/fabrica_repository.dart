@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:ejemplo_fabricas/app/domain/email_address.dart';
-import 'package:ejemplo_fabricas/app/domain/is_required.dart';
 import 'package:ejemplo_fabricas/fabricas/domain/fabrica.dart';
 import 'package:ejemplo_fabricas/fabricas/domain/i_fabrica_facade.dart';
 import 'package:injectable/injectable.dart';
@@ -16,20 +14,9 @@ class FabricaRepository implements IFabricaFacade {
   Future<List<Fabrica>> getListaFabrica() async {
     await Future<dynamic>.delayed(const Duration(seconds: 2));
 
-    // List<Map> list = await db.rawQuery('SELECT * FROM Test');
-    List<Map> list = await db.query('Fabricas');
-    print(list);
+    final List<Map<String, Object?>> list = await db.query('Fabricas');
 
-    return <Fabrica>[
-      // Fabrica(
-      //   nombre: IsRequired('Electronica Sarabia'),
-      //   email: EmailAddress('algo@algo.com'),
-      //   telefono: '444650',
-      //   direccion: 'Bs As 1154',
-      //   descripcion: 'Electronica que se dedica a vender cosas',
-      //   webPage: 'https://www.google.com',
-      // ),
-    ];
+    return Fabrica.listOfFabricasFromListOfMaps(list);
   }
 
   @override

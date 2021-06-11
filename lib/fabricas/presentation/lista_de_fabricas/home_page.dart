@@ -1,5 +1,6 @@
 import 'package:ejemplo_fabricas/app/domain/email_address.dart';
 import 'package:ejemplo_fabricas/fabricas/domain/fabrica.dart';
+import 'package:ejemplo_fabricas/fabricas/presentation/agregar_fabricas/agregar_fabrica.dart';
 import 'package:ejemplo_fabricas/fabricas/presentation/detalle_fabrica/detalle_fabrica.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,18 @@ class HomePage extends StatelessWidget {
             );
           },
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).push<dynamic>(
+            MaterialPageRoute<dynamic>(
+              builder: (BuildContext context) {
+                return const AgregarFabrica();
+              },
+            ),
+          );
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }
